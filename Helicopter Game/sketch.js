@@ -5,7 +5,7 @@ var gameOverTimer;
 var wall1, wall2, wall3, wallSpeed, wallSpeedHard;
 var score;
 var heliSpeed;
-var highscore1, highscore2;
+var highscore = localStorage.getItem("highscore");
 
 function preload() {
     heli.img = loadImage("assets/heliBlueTransparent.png"); 
@@ -41,4 +41,5 @@ function mousePressed() {
     console.log(gameState);
     console.log(wallSpeedHard);
     console.log(wallSpeed);
+    console.log(heliSpeed);
 }

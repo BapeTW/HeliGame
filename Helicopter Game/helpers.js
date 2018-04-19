@@ -2,6 +2,10 @@ function initialize() {
     heli.x = 100;
     heli.y = height / 2;
     gameState = "start"; // or gameOn or gameOver
+    heliSpeed = {
+        x: 3,
+        y: 5
+    };
     wall1 = {
         x: 500,
         y: random(50, height - 150),
@@ -64,9 +68,17 @@ function gameHard() {
 
 function gameOver() {
     if (frameCount - gameOverTimer < 120) {
+        if (highscore !== null) {
+            if (score > highscore) {
+                localStorage.setItem("highscore", score);
+            }
+        } else {
+            localStorage.setItem("highscore", score);
+        }
+
         fill(255);
         text("GAME OVER", width / 2, height / 2);
-        text("Highscores:\n1: " + highscore1 + "\n2: " + highscore2, width / 2, 100);
+        text("Highscores:\n1: " + highscore, width / 2, 100);
     } else {
         initialize();
     }

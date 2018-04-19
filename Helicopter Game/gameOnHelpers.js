@@ -7,10 +7,15 @@ function moveHelicopter() {
 }
 
 function moveHelicopterHard() {
+    if (score % 150 == 0) {
+        heliSpeed.x += 0.5;
+        heliSpeed.y += 0.5;
+    }
+    
     if (mouseIsPressed) {
-        heli.y -= 6;
+        heli.y -= heliSpeed.x;
     } else {
-        heli.y += 10;
+        heli.y += heliSpeed.y;
     }
 }
 
@@ -98,6 +103,10 @@ function drawGameOn() {
     rect(wall1.x, wall1.y, wall1.w, wall1.h); // Wall 1
     rect(wall2.x, wall2.y, wall2.w, wall2.h); // Wall 2
     rect(wall3.x, wall3.y, wall3.w, wall3.h);
+    stroke(255, 0, 0);
+    line(wall1.x, wall2.x);
+    line(wall2.x, wall3.x);
+    line(wall3.x, wall1.x);
     image(heli.img, heli.x, heli.y); // Helicopter
     fill(255);
     text("Score: " + score, width / 2, height - 10);
