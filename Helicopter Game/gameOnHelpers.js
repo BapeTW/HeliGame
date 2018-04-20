@@ -1,3 +1,9 @@
+function setHighscore() {
+    if (score > highscore) {
+        localStorage.setItem("highscore", score + 5);
+    }
+}
+
 function moveHelicopter() {
     if (mouseIsPressed) {
         heli.y -= 3;
@@ -11,7 +17,7 @@ function moveHelicopterHard() {
         heliSpeed.x += 0.5;
         heliSpeed.y += 0.5;
     }
-    
+
     if (mouseIsPressed) {
         heli.y -= heliSpeed.x;
     } else {
@@ -77,17 +83,17 @@ function checkCollision() {
     }
 
     // WALLS
-    if (heli.x + 81 > wall1.x && heli.x < wall1.x + wall1.w && heli.y + 41 > wall1.y && heli.y < wall1.y + wall1.h) {
+    if (heli.x + 79 > wall1.x && heli.x < wall1.x + wall1.w && heli.y + 40 > wall1.y && heli.y < wall1.y + wall1.h) {
         gameState = "gameOver";
         gameOverTimer = frameCount;
     }
 
-    if (heli.x + 81 > wall2.x && heli.x < wall2.x + wall2.w && heli.y + 41 > wall2.y && heli.y < wall2.y + wall2.h) {
+    if (heli.x + 79 > wall2.x && heli.x < wall2.x + wall2.w && heli.y + 40 > wall2.y && heli.y < wall2.y + wall2.h) {
         gameState = "gameOver";
         gameOverTimer = frameCount;
     }
 
-    if (heli.x + 81 > wall3.x && heli.x < wall3.x + wall3.w && heli.y + 41 > wall3.y && heli.y < wall3.y + wall3.h) {
+    if (heli.x + 79 > wall3.x && heli.x < wall3.x + wall3.w && heli.y + 40 > wall3.y && heli.y < wall3.y + wall3.h) {
         gameState = "gameOver";
         gameOverTimer = frameCount;
     }

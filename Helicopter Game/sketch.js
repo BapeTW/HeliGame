@@ -38,8 +38,5 @@ function mousePressed() {
    if (gameState == "start" && mouseX > 400) {
         gameState = "gameHard";
     }
-    console.log(gameState);
-    console.log(wallSpeedHard);
-    console.log(wallSpeed);
-    console.log(heliSpeed);
+    console.log(highscore);
 }

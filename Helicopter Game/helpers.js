@@ -51,6 +51,7 @@ function drawStartScreen() {
 }
 
 function gameOn() {
+    setHighscore();
     score++;
     moveHelicopter();
     moveWalls();
@@ -59,6 +60,7 @@ function gameOn() {
 }
 
 function gameHard() {
+    setHighscore();
     score += 5;
     moveHelicopterHard();
     moveWallsHard();
@@ -68,17 +70,9 @@ function gameHard() {
 
 function gameOver() {
     if (frameCount - gameOverTimer < 120) {
-        if (highscore !== null) {
-            if (score > highscore) {
-                localStorage.setItem("highscore", score);
-            }
-        } else {
-            localStorage.setItem("highscore", score);
-        }
-
         fill(255);
         text("GAME OVER", width / 2, height / 2);
-        text("Highscores:\n1: " + highscore, width / 2, 100);
+        text("Highscores:\n1: " + localStorage.getItem("highscore"), width / 2, 100);
     } else {
         initialize();
     }
